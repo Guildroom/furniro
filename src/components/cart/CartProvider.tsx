@@ -11,7 +11,7 @@ type CartContextType = {
   addItem: (product: Product) => void;
   removeItem: (id: number) => void;
   clear: () => void;
-  updateQuantity: (id: number, quantity: number) => void; // NEW
+  updateQuantity: (id: number, quantity: number) => void;
   totalCount: number;
 };
 
@@ -44,7 +44,6 @@ export default function CartProvider({ children }: { children: ReactNode }) {
 
   const clear = () => setItems([]);
 
-  // NEW: update quantity
   const updateQuantity = (id: number, quantity: number) => {
     setItems((prev) =>
       prev.map((i) =>

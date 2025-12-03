@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -22,8 +22,7 @@ export default function Header() {
             />
           </Link>
 
-          {/* Navigation - Center */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             <Link
               href="/"
               className="text-black font-medium hover:text-slate-600 transition-colors"

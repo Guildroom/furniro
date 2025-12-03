@@ -12,7 +12,7 @@ export default function Hero({
   title = "Furniro — Beautiful, sustainable furniture",
   subtitle = "Design-forward pieces crafted from responsible materials. Shop small-batch collections and customize finishes.",
   ctaText = "Shop Collections",
-  ctaHref = "/collections",
+  ctaHref = "/shop",
   features,
 }: HeroProps) {
   return (
@@ -55,7 +55,6 @@ export default function Hero({
             </div>
           </div>
         </div>
-        {/* Features inside hero */}
         {features && (
           <div className="mt-24 grid gap-4 sm:grid-cols-3">
             {features.map((f) => (

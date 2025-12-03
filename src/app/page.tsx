@@ -19,7 +19,6 @@ const features = [
 ];
 
 export default function Home() {
-  // show top 4 products by price (highest priced)
   const topProducts = [...products]
     .map((p) => ({
       ...p,
@@ -29,7 +28,6 @@ export default function Home() {
     .slice(0, 8);
   return (
     <>
-      {/* Hero section with background image */}
       <div
         className="relative min-h-screen text-black"
         style={{
@@ -44,7 +42,6 @@ export default function Home() {
         </main>
       </div>
 
-      {/* Rest of content with light gradient background */}
       <div className="bg-linear-to-b from-white via-slate-50 to-slate-100 text-black">
         <main className="mx-auto max-w-5xl px-6 py-16">
           <section className="mt-12">
@@ -92,13 +89,15 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-medium text-black text-lg">
+                    <a
+                      href={`/product/${product.id}`}
+                      className="font-medium text-black text-lg hover:text-amber-700 transition-colors"
+                    >
                       {product.name}
-                    </h3>
+                    </a>
                     <p className="text-slate-600 text-sm mt-2">
                       {product.price}
                     </p>
-                    {/* use client AddToCartButton to interact with cart context */}
                     <AddToCartButton product={product} />
                   </div>
                 </div>

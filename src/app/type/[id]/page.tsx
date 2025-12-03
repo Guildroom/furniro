@@ -23,7 +23,6 @@ export default function TypePage() {
   return (
     <main className="mx-auto px-6 pt-28 pb-16">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Left filter column (hidden on small screens) */}
         <aside className="hidden lg:block">
           <div className="sticky top-24 space-y-6">
             <div className="bg-white p-4 rounded-lg border border-slate-100 shadow-sm">
@@ -98,9 +97,7 @@ export default function TypePage() {
           </div>
         </aside>
 
-        {/* Main content */}
         <div className="lg:col-span-3">
-          {/* Search bar centered above content */}
           <div className="flex justify-center mt-6 mb-8">
             <div className="w-full">
               <div className="mx-auto w-full max-w-4xl">
@@ -155,7 +152,12 @@ export default function TypePage() {
                 </div>
                 <div className="p-4 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-medium text-black text-lg">{p.name}</h3>
+                    <Link
+                      href={`/product/${p.id}`}
+                      className="font-medium text-black text-lg hover:text-amber-700 transition-colors"
+                    >
+                      {p.name}
+                    </Link>
                     <p className="text-slate-600 text-sm mt-2">{p.price}</p>
                   </div>
                   <div>
