@@ -1,0 +1,2 @@
+javascript;
+declare module "*.css";
