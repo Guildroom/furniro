@@ -5,7 +5,7 @@ import { useCart } from "./CartProvider";
 import Image from "next/image";
 
 export default function CartButton() {
-  const { items, totalCount, removeItem, clear } = useCart();
+  const { items, totalCount, removeItem, clear, updateQuantity } = useCart();
   const [open, setOpen] = useState(false);
 
   return (
@@ -65,6 +65,24 @@ export default function CartButton() {
                   <div className="text-sm font-medium">{it.name}</div>
                   <div className="text-xs text-slate-500">
                     {it.price} × {it.quantity}
+                  </div>
+                  {/* Quantity controls */}
+                  <div className="flex items-center gap-2 mt-1">
+                    <button
+                      onClick={() =>
+                        updateQuantity(it.id, Math.max(it.quantity - 1, 1))
+                      }
+                      className="px-2 py-1 text-xs bg-slate-200 rounded"
+                    >
+                      -
+                    </button>
+                    <span className="text-sm">{it.quantity}</span>
+                    <button
+                      onClick={() => updateQuantity(it.id, it.quantity + 1)}
+                      className="px-2 py-1 text-xs bg-slate-200 rounded"
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
                 <button

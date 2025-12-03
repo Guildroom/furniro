@@ -45,7 +45,7 @@ export default function Home() {
       </div>
 
       {/* Rest of content with light gradient background */}
-      <div className="bg-gradient-to-b from-white via-slate-50 to-slate-100 text-black">
+      <div className="bg-linear-to-b from-white via-slate-50 to-slate-100 text-black">
         <main className="mx-auto max-w-5xl px-6 py-16">
           <section className="mt-12">
             <h2 className="text-3xl font-semibold text-black mb-6">
@@ -104,13 +104,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </section>
-
-          <section className="mt-16 border-t border-slate-200 pt-10 text-center text-sm text-black">
-            <p>
-              © {new Date().getFullYear()} Furniro. Designed with care in small
-              batches.
-            </p>
           </section>
         </main>
       </div>

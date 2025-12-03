@@ -2,17 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { sampleProductsByType } from "../../../lib/constant";
-import AddToCartButton from "../../../components/cart/AddToCartButton";
-import { useParams } from "next/navigation";
+import { products, types } from "../../lib/constant";
+import AddToCartButton from "../../components/cart/AddToCartButton";
 import { useMemo, useState } from "react";
 
-export default function TypePage() {
-  const { id } = useParams();
-  const products = sampleProductsByType[id as string] ?? [];
-  const title = id
-    ? (id as string).charAt(0).toUpperCase() + (id as string).slice(1)
-    : "Type";
+export default function ShopPage() {
+  const title = "Shop";
   const [searchQuery, setSearchQuery] = useState("");
   const filteredProducts = useMemo(() => {
     return products.filter((product) =>
@@ -57,6 +52,25 @@ export default function TypePage() {
                     <option>$250 - $750</option>
                     <option>$750+</option>
                   </select>
+                </div>
+                <div>
+                  <div className="text-xs font-medium text-slate-700 mb-2">
+                    Furniture Type
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    {types.map((type) => (
+                      <label
+                        key={type.id}
+                        className="inline-flex items-center gap-2 text-sm text-slate-600"
+                      >
+                        <input
+                          type="checkbox"
+                          className="form-checkbox h-4 w-4 text-slate-900"
+                        />
+                        {type.name}
+                      </label>
+                    ))}
+                  </div>
                 </div>
                 <div>
                   <div className="text-xs font-medium text-slate-700 mb-2">
@@ -120,7 +134,6 @@ export default function TypePage() {
                       />
                     </svg>
                   </span>
-
                   <input
                     type="search"
                     placeholder="Search products, styles or materials..."
@@ -135,7 +148,7 @@ export default function TypePage() {
 
           <h1 className="text-3xl font-semibold text-black mb-2">{title}</h1>
           <p className="text-slate-600 mb-8">
-            Browse our selection of {title.toLowerCase()}.
+            Browse our selection of products.
           </p>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -167,7 +180,7 @@ export default function TypePage() {
           </div>
 
           {filteredProducts.length === 0 && (
-            <p className="text-slate-600 mt-8">No items found for this type.</p>
+            <p className="text-slate-600 mt-8">No items found.</p>
           )}
         </div>
       </div>
